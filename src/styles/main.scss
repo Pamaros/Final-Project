@@ -1,3 +1,90 @@
+//https://www.figma.com/design/fI4LcpxO7AUXOnJxyApPXj/Portfolio-template---Edit-this-portfolio-and-export-it-as-HTML---Get-your-portfolio-live-in-no-time--Community-?node-id=11-2810&p=f&t=278W9Fq1TH2d9SP9-0
+
+//  https://api.artic.edu/docs/
+
 @import "reset";
 @import "colors";
 @import "typography";
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background-color: grey;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+
+  &--center {
+    align-items: center;
+  }
+
+  &--left {
+    align-items: baseline;
+  }
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  height: 35px;
+}
+
+.grid {
+  display: grid;
+}
+
+.welcome-card {
+  width: 80%;
+  margin: 0 auto 0 auto;
+  background-color: white;
+  padding: 20px;
+
+  &--bio {
+    width: 100%;
+    overflow-wrap: break-word;
+    text-align: left;
+  }
+  &--text-ctn {
+    width: 350px;
+  }
+}
+
+.projects {
+  &--card {
+    margin-top: 50px;
+
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: white;
+    padding: 20px;
+  }
+
+  &--grid {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    height: 100%;
+  }
+
+  &--grid-cell {
+    height: 100%;
+    width: 100%;
+    background-color: blue;
+  }
+}
+
+.random-image {
+  &--name {
+    height: 200px;
+    width: auto;
+  }
+}

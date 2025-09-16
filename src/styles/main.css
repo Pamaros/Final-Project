@@ -1,0 +1,116 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em rgba(100, 108, 255, 0.6666666667));
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em rgba(97, 218, 251, 0.6666666667));
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-color: grey;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.flex-column--center {
+  align-items: center;
+}
+.flex-column--left {
+  align-items: baseline;
+}
+
+.flex-row {
+  display: flex;
+  align-items: center;
+}
+
+.button {
+  height: 35px;
+}
+
+.grid {
+  display: grid;
+}
+
+.welcome-card {
+  width: 80%;
+  margin: 0 auto 0 auto;
+  background-color: white;
+  padding: 20px;
+}
+.welcome-card--bio {
+  width: 100%;
+  overflow-wrap: break-word;
+  text-align: left;
+}
+.welcome-card--text-ctn {
+  width: 350px;
+}
+
+.projects--card {
+  margin-top: 50px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: white;
+  padding: 20px;
+}
+.projects--grid {
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  height: 100%;
+}
+.projects--grid-cell {
+  height: 100%;
+  width: 100%;
+  background-color: blue;
+}
+
+.random-image--name {
+  height: 200px;
+  width: auto;
+}/*# sourceMappingURL=main.css.map */
