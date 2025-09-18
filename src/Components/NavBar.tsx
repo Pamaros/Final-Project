@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import Button from "./Button";
-import ButtonContact from "./Button contact";
-
+import ButtonContact from "./ButtonContact";
 
 function NavBar() {
   const [scrolled, setScrolled] = useState(false);
