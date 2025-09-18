@@ -1,4 +1,3 @@
-
 import type { ReactNode } from "react";
 
 interface CardProps {
@@ -7,10 +6,7 @@ interface CardProps {
 }
 
 function Card({ children, className }: CardProps) {
-
-    return(
-        <div className= {`card ${className}`}>{ children }</div>
-    )
+  return <div className={`card ${className}`}>{children}</div>;
 }
 
-export default Card
+export default Card;

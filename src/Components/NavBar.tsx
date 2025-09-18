@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Button from "./Button";
+import ButtonContact from "./Button contact";
 
 
 function NavBar() {
@@ -19,7 +20,7 @@ function NavBar() {
       className={`nav-bar ${scrolled ? "nav-bar--visible" : "nav-bar--hidden"}`}
     >
       <Button text="About" link={"/about/"}></Button>
-      <Button text="Contact" link={"/contact/"}></Button>
+      <ButtonContact></ButtonContact>
     </div>
   );
 }

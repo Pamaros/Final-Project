@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Epilogue:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Epilogue:wght@100;200;300;400;500;600;700;800;900&display=swap");
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -35,12 +35,17 @@
   color: #888;
 }
 
+* {
+  font-family: "Epilogue", Courier, monospace;
+}
+
 h1 {
-  font-size: 3.5rem;
+  font-size: 4rem;
+  font-weight: 700;
 }
 
 h2 {
-  font-size: 3.157rem;
+  font-size: 2rem;
 }
 
 h3 {
@@ -62,9 +67,14 @@ h4,
 h5,
 p,
 span {
-  margin: 1rem 0 0.38rem;
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.3;
+}
+
+.page-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 
 *,
@@ -75,7 +85,7 @@ span {
 
 body {
   margin: 0;
-  background-color: grey;
+  background-color: rgb(107, 107, 107);
 }
 
 .flex-column {
@@ -127,9 +137,13 @@ body {
 }
 
 .welcome-card {
-  width: 80%;
-  margin: 0 auto 0 auto;
-  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 30px;
 }
 .welcome-card--bio {
   width: 100%;
@@ -138,29 +152,66 @@ body {
 }
 .welcome-card--text-ctn {
   width: 350px;
+  position: relative;
+  z-index: 2;
+}
+
+.random-image--ctn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.random-image--img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+  filter: brightness(0.5);
+}
+.random-image--overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(253, 253, 253, 0.823);
 }
 
 .projects--card {
   margin-top: 50px;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+  width: 100%;
   padding: 20px;
 }
 .projects--grid {
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 10px;
-  height: 100%;
-}
-.projects--grid-cell {
+  gap: 5px;
   height: 100%;
   width: 100%;
-  background-color: blue;
 }
-
-.random-image--name {
-  height: 200px;
-  width: auto;
+.projects--grid-item {
+  width: 100%;
+}
+.projects--grid-item--ctn {
+  gap: 5px;
+}
+.projects--grid-item--image {
+  width: 100%;
+  aspect-ratio: 1/1;
+  -o-object-fit: cover;
+     object-fit: cover;
+  display: block;
+}
+.projects--grid-item--image--error {
+  background-color: rgb(107, 107, 107);
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+.projects--grid-item--art-type {
+  font-weight: bold;
 }
 
 .test {
@@ -188,13 +239,22 @@ body {
   margin: 0 auto 0 auto;
   padding: 20px;
 }
+.project--header-ctn {
+  grid-template-columns: 1fr 1fr;
+}
 .project--description {
   width: 100%;
   overflow-wrap: break-word;
   text-align: left;
 }
 .project--picture {
-  height: 200px;
+  width: 100%;
+  height: auto;
+}
+.project--description, .project--credit-line {
+  text-align: justify;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 * Crea {

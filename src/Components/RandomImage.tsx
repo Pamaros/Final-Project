@@ -20,9 +20,9 @@ function RandomImage({ projectsList }: RandomImageProps) {
           const item = itemsWithImage[randomIndex];
 
           return (
-            <div className="random-image flex-column flex-column--center">
+            <div className="random-image--ctn">
               <img
-                className="random-image--name"
+                className="random-image--img"
                 src={`https://www.artic.edu/iiif/2/${item.image_id}/full/843,/0/default.jpg`}
                 alt=""
                 onError={(e) => {
@@ -31,7 +31,7 @@ function RandomImage({ projectsList }: RandomImageProps) {
                 }}
               />
 
-              <span>{item.title}</span>
+              <div className="random-image--overlay"></div>
             </div>
           );
         })()}

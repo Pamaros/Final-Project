@@ -1,15 +1,16 @@
-import Button from "./Button.tsx";
 import Card from "./Card";
 import RandomImage from "./RandomImage.tsx";
 
-
 import type { ProjectsListInterface } from "../types/projects";
+import ButtonContact from "./Button contact.tsx";
+import ButtonAbout from "./ButtonAbout.tsx";
+import Spacing from "./spacing.tsx";
 
 interface WelcomeCardProps {
-  projectsList?: ProjectsListInterface; 
+  projectsList?: ProjectsListInterface;
 }
 
-function WelcomeCard({projectsList}: WelcomeCardProps) {
+function WelcomeCard({ projectsList }: WelcomeCardProps) {
   return (
     <>
       <Card className="welcome-card flex-row">
@@ -18,10 +19,13 @@ function WelcomeCard({projectsList}: WelcomeCardProps) {
 
           <h2>Architect</h2>
           <p className="welcome-card--bio">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-            Distinctioa magnam. Soluta perferendis culpa necessit
+            An architect focused on creating functional and thoughtful spaces. His work emphasizes simplicity, light, and the needs of the people who use them.
           </p>
-          <Button text="Contact" link={"/contact/"}></Button>
+          <div className="flex-row"> 
+          <ButtonContact></ButtonContact>
+          <Spacing width={10}/>
+          <ButtonAbout></ButtonAbout>
+          </div>
         </div>
 
         <RandomImage projectsList={projectsList}></RandomImage>

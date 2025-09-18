@@ -1,7 +1,4 @@
-interface ButtonProps {
-  text: string;
-  link: string;
-}
+import type { ButtonProps } from "../types/projects";
 
 function Button({ text, link }: ButtonProps) {
   return (

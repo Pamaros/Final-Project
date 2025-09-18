@@ -1,10 +1,14 @@
-//https://www.figma.com/design/fI4LcpxO7AUXOnJxyApPXj/Portfolio-template---Edit-this-portfolio-and-export-it-as-HTML---Get-your-portfolio-live-in-no-time--Community-?node-id=11-2810&p=f&t=278W9Fq1TH2d9SP9-0
-
-//  https://api.artic.edu/docs/
-
 @import "reset";
 @import "colors";
 @import "typography";
+
+$color-bg-grey: rgb(107, 107, 107);
+
+.page-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
 
 *,
 *::before,
@@ -13,7 +17,7 @@
 }
 body {
   margin: 0;
-  background-color: grey;
+  background-color: $color-bg-grey;
 }
 
 .flex-column {
@@ -70,10 +74,14 @@ body {
 }
 
 .welcome-card {
-  width: 80%;
-  margin: 0 auto 0 auto;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
 
-  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 30px;
 
   &--bio {
     width: 100%;
@@ -82,6 +90,36 @@ body {
   }
   &--text-ctn {
     width: 350px;
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.random-image {
+  &--ctn {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  &--img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.5);
+  }
+
+  &--overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(253, 253, 253, 0.823);
   }
 }
 
@@ -89,30 +127,43 @@ body {
   &--card {
     margin-top: 50px;
 
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
 
     padding: 20px;
   }
 
   &--grid {
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 10px;
-    height: 100%;
-  }
-
-  &--grid-cell {
+    gap: 5px;
     height: 100%;
     width: 100%;
-    background-color: blue;
   }
-}
 
-.random-image {
-  &--name {
-    height: 200px;
-    width: auto;
+  &--grid-item {
+    width: 100%;
+
+    //background-color: blue;
+
+    &--ctn {
+      gap: 5px;
+    }
+
+    &--image {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+    }
+
+    &--image--error {
+      background-color: $color-bg-grey;
+      width: 100%;
+      aspect-ratio: 1 / 1;
+    }
+
+    &--art-type {
+      font-weight: bold;
+    }
   }
 }
 
@@ -153,7 +204,9 @@ body {
 
   padding: 20px;
 
-
+  &--header-ctn {
+    grid-template-columns: 1fr 1fr;
+  }
 
   &--description {
     width: 100%;
@@ -162,7 +215,15 @@ body {
   }
 
   &--picture {
-    height: 200px;
+    width: 100%;
+    height: auto;
+  }
+
+  &--description,
+  &--credit-line {
+    text-align: justify;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
   }
 }
 

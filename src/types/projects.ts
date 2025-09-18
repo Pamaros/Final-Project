@@ -6,6 +6,8 @@ export interface ItemOfTheDataArray {
   date_end: number;
   artwork_type_title: string;
   description: string;
+  artist_title: string;
+  credit_line: string;
 }
 
 export interface ProjectsListInterface {
@@ -49,4 +51,9 @@ export interface ProjectInterface {
     total: number;
     total_pages: number;
   };
+}
+
+export interface ButtonProps {
+  text: string;
+  link: string;
 }

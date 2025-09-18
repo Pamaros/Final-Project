@@ -8,11 +8,13 @@ import ContactPage from "./Pages/ContactPage.tsx";
 import ProjectPage from "./Pages/ProjectPage.tsx";
 import NavBar from "./Components/NavBar.tsx";
 import AboutPage from "./Pages/AboutPage.tsx";
+import PageWrapper from "./Components/PageWrapper.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <BrowserRouter>
     <NavBar/>
+    <PageWrapper>
       <Routes>
         <Route path="/" element={<Homepage />} />
 
@@ -22,6 +24,7 @@ createRoot(document.getElementById("root")!).render(
         <Route path="/project/:id" element={<ProjectPage />} />
 
       </Routes>
+      </PageWrapper>
     </BrowserRouter>
   </StrictMode>
 );

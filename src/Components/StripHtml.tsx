@@ -10,7 +10,7 @@ function StripHtml({ htmlText }: PlainTextProps) {
     return doc.body.textContent || "";
   }, [htmlText]);
 
-  return <span>{text}</span>;
+  return <p className="project--description">{text}</p>;
 }
 
 export default StripHtml;

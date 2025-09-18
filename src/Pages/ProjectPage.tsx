@@ -32,13 +32,16 @@ function ProjectPage() {
       {project && (
         <>
           <div className="flex-column">
-            <div className="flex-row">
+            <div className="project--header-ctn grid">
               <div className="flex-column flex-column--left">
-                <span>{project.data.place_of_origin}</span>
-                <span>{project.data.date_end}</span>
+                <span>
+                  {project.data.place_of_origin} | {project.data.date_end}{" "}
+                </span>
+
                 <h1 className="project--title">
                   {project.data.artwork_type_title}
                 </h1>
+                <p className="project--credit-line">{project.data.credit_line}</p>
               </div>
 
               <img
@@ -58,6 +61,3 @@ function ProjectPage() {
 }
 
 export default ProjectPage;
-
-
-
