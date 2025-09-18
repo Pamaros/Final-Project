@@ -1,4 +1,3 @@
-
 import Card from "./Card";
 
 import type { ProjectsListInterface } from "../types/projects";
@@ -13,7 +12,9 @@ function ProjectsCard({ projectsList }: ProjectsCardProps) {
     <Card className="projects--card">
       <div className="projects--gallery-title">Projectos</div>
 
-      {projectsList?.data && (
+      {!projectsList ? (
+        <div className="projects--loading">Loading projects...</div>
+      ) : (
         <div className="projects--grid grid">
           {" "}
           {projectsList.data

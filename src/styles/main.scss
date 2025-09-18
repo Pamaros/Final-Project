@@ -44,7 +44,6 @@ body {
 
 .card {
   background-color: white;
-  
 }
 
 .button {
@@ -130,6 +129,9 @@ body {
 }
 
 .projects {
+  &--ctn {
+    gap: 20px;
+  }
   &--gallery-title {
     display: table;
     margin: 30px auto 30px auto;

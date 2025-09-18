@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 
 import type { ProjectInterface } from "../types/projects";
 import StripHtml from "../Components/StripHtml";
+import ButtonsGroup from "../Components/ButtonsGroup";
+import Spacing from "../Components/Spacing";
 
 function ProjectPage() {
   const params = useParams();
@@ -28,34 +30,42 @@ function ProjectPage() {
   }, []);
 
   return (
-    <Card className="flex-row">
-      {project && (
-        <>
-          <div className="flex-column">
-            <div className="project--header-ctn grid">
-              <div className="flex-column flex-column--left">
-                <span>
-                  {project.data.place_of_origin} | {project.data.date_end}{" "}
-                </span>
+    <Card>
+      <div className="projects--ctn flex-row">
+        {project && (
+          <>
+            <div className="flex-column">
+              <div className="project--header-ctn grid">
+                <div className="flex-column flex-column--left">
+                  <span>
+                    {project.data.place_of_origin} | {project.data.date_end}{" "}
+                  </span>
 
-                <h1 className="project--title">
-                  {project.data.artwork_type_title}
-                </h1>
-                <p className="project--credit-line">{project.data.credit_line}</p>
+                  <h1 className="project--title">
+                    {project.data.artwork_type_title}
+                  </h1>
+                  <p className="project--credit-line">
+                    {project.data.credit_line}
+                  </p>
+                </div>
+
+                <img
+                  className="project--picture"
+                  src={`https://www.artic.edu/iiif/2/${project.data.image_id}/full/843,/0/default.jpg`}
+                  alt=""
+                />
               </div>
-
-              <img
-                className="project--picture"
-                src={`https://www.artic.edu/iiif/2/${project.data.image_id}/full/843,/0/default.jpg`}
-                alt=""
-              />
+              {project.data.description && (
+                <StripHtml htmlText={project.data.description} />
+              )}
             </div>
-            <StripHtml htmlText={project.data.description} />
+          </>
+        )}
+      </div>
+      <Spacing height= "40"></Spacing>
 
-            {/* <p className="project--description">{project.data.description}</p> */}
-          </div>
-        </>
-      )}
+
+      <ButtonsGroup home={true} contact={true} about={true} />
     </Card>
   );
 }
