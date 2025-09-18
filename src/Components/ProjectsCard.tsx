@@ -11,7 +11,7 @@ interface ProjectsCardProps {
 function ProjectsCard({ projectsList }: ProjectsCardProps) {
   return (
     <Card className="projects--card">
-      <div>Projectos</div>
+      <div className="projects--gallery-title">Projectos</div>
 
       {projectsList?.data && (
         <div className="projects--grid grid">

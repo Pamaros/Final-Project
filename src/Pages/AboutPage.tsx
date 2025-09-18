@@ -1,4 +1,7 @@
+import ButtonsGroup from "../Components/ButtonsGroup";
 import Card from "../Components/Card";
+
+
 
 function AboutPage() {
   return (
@@ -19,6 +22,8 @@ function AboutPage() {
         emerging architects and frequently participates in lectures and
         workshops, sharing his vision for innovative, human-centered design.
       </p>
+
+      <ButtonsGroup home={true} contact={true}/>
     </Card>
   );
 }

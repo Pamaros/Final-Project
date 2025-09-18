@@ -5,7 +5,7 @@
 $color-bg-grey: rgb(107, 107, 107);
 
 .page-wrapper {
-  max-width: 800px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -38,24 +38,30 @@ body {
   align-items: center;
 }
 
-.button {
-  height: 35px;
-}
-
 .grid {
   display: grid;
 }
 
 .card {
   background-color: white;
+  
 }
-//////////////////////////////////////////
+
+.button {
+  background-color: black;
+  color: white;
+  width: 80px;
+  height: 35px;
+  border: none;
+}
 
 .nav-bar {
   width: 100%;
   height: 50px;
   background-color: white;
   position: fixed;
+  z-index: 10;
+  justify-content: center;
 
   &--visible {
     opacity: 1;
@@ -70,7 +76,7 @@ body {
 
 .about {
   margin-top: 100px;
-  width: 70%;
+  width: 100%;
 }
 
 .welcome-card {
@@ -124,25 +130,26 @@ body {
 }
 
 .projects {
+  &--gallery-title {
+    display: table;
+    margin: 30px auto 30px auto;
+  }
+
   &--card {
     margin-top: 50px;
-
     width: 100%;
-
-    padding: 20px;
+    padding: 30px;
   }
 
   &--grid {
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 5px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
     height: 100%;
     width: 100%;
   }
 
   &--grid-item {
     width: 100%;
-
-    //background-color: blue;
 
     &--ctn {
       gap: 5px;
@@ -164,18 +171,17 @@ body {
     &--art-type {
       font-weight: bold;
     }
+
+    &--art-artist {
+      font-weight: 200;
+    }
   }
 }
 
-.test {
-  height: 50px;
-  width: 60px;
-  background-color: yellow;
-}
-
 .form {
+  margin-bottom: 30px;
+
   & label {
-    color: blue;
     display: block;
   }
 
@@ -192,11 +198,11 @@ body {
   &--group textarea {
     width: 100%;
   }
-}
 
-// .form * {
-//   display: block;
-// }
+  &--margin-bottom-20 {
+    margin-bottom: 20px;
+  }
+}
 
 .project {
   width: 80%;
@@ -225,9 +231,4 @@ body {
     word-wrap: break-word;
     overflow-wrap: break-word;
   }
-}
-
-*Crea {
-  font-family: "Epilogue", sans-serif;
-  font-weight: 700;
 }

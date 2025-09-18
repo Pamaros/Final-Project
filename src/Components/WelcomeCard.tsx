@@ -2,9 +2,7 @@ import Card from "./Card";
 import RandomImage from "./RandomImage.tsx";
 
 import type { ProjectsListInterface } from "../types/projects";
-import ButtonContact from "./ButtonContact.tsx";
-import ButtonAbout from "./ButtonAbout.tsx";
-import Spacing from "./Spacing";
+import ButtonsGroup from "./ButtonsGroup.tsx";
 
 interface WelcomeCardProps {
   projectsList?: ProjectsListInterface;
@@ -24,9 +22,7 @@ function WelcomeCard({ projectsList }: WelcomeCardProps) {
             who use them.
           </p>
           <div className="flex-row">
-            <ButtonContact></ButtonContact>
-            <Spacing width={10} />
-            <ButtonAbout></ButtonAbout>
+            <ButtonsGroup  about={true} contact={true}/>
           </div>
         </div>
 

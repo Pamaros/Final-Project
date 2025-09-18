@@ -1,3 +1,4 @@
+import ButtonsGroup from "../Components/ButtonsGroup";
 import Card from "../Components/Card";
 
 function ContactPage() {
@@ -12,14 +13,14 @@ function ContactPage() {
 
       <form
         className="form flex-column"
-        id="myform"
+        id="contact-form"
         onSubmit={handleSubmit}
         method="get"
       >
-        <div className="form--row flex-row">
+        <div className="form--row form--margin-bottom-20 flex-row">
           <div className="form--group flex-column flex-column--left">
             <label htmlFor="name">Full Name</label>
-            <input type="text" id="name" name="name" />
+            <input type="text" id="name" name="name" required />
           </div>
 
           <div className="form--group flex-column flex-column--left">
@@ -28,10 +29,11 @@ function ContactPage() {
           </div>
         </div>
 
-        <div className="form--row flex-row">
+        <div className="form--row form--margin-bottom-20 flex-row">
           <div className="form--group flex-column flex-column--left">
             <label htmlFor="email">E-mail</label>
             <input
+              required
               type="email"
               id="email"
               name="email"
@@ -49,35 +51,41 @@ function ContactPage() {
           </div>
         </div>
 
-        <div className="form--group flex-column flex-column--left">
-          <label htmlFor="district">Subject</label>
-          <select className="" name="district" id="district" required>
-            <option value="">Selecione...</option>
-            <option value="lisboa">Lisboa</option>
-            <option value="porto">Porto</option>
-            <option value="braga">Braga</option>
+        <div className="form--margin-bottom-20 form--group flex-column flex-column--left">
+          <label htmlFor="subject">Subject</label>
+          <select className="" name="subject" id="subject" required>
+            <option value="">Select...</option>
+            <option value="site-analysis">Site analysis</option>
+            <option value="programming">Programming</option>
+            <option value="concept-design">Concept design</option>
           </select>
         </div>
 
-        <div className="form--group flex-column flex-column--left">
+        <div className="form--margin-bottom-20 form--group flex-column flex-column--left">
           <label htmlFor="message">Mensagem</label>
           <textarea
+            required
             name="message"
             id="message"
-            maxLength={200}
+            maxLength={400}
             rows={5}
             cols={50}
           />
         </div>
 
-        
-        <input type="file" id="file" name="file" />
+        <input
+          className="form--margin-bottom-20"
+          type="file"
+          id="file"
+          name="file"
+        />
 
-        <div>
-          <input type="reset" value="Limpar" />
-          <input type="submit" value="Submeter" />
+        <div className="form--row flex-row">
+          <input type="reset" value="Reset" />
+          <input type="submit" value="Submit" />
         </div>
       </form>
+      <ButtonsGroup home={true} about={true}/>
     </Card>
   );
 }

@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
-import Button from "./Button";
-import ButtonContact from "./ButtonContact";
+import ButtonsGroup from "./ButtonsGroup";
 
 function NavBar() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 400);
+      setScrolled(window.scrollY > 500);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -16,10 +15,11 @@ function NavBar() {
 
   return (
     <div
-      className={`nav-bar ${scrolled ? "nav-bar--visible" : "nav-bar--hidden"}`}
+      className={`nav-bar ${
+        scrolled ? "nav-bar--visible" : "nav-bar--hidden"
+      } flex-row`}
     >
-      <Button text="About" link={"/about/"}></Button>
-      <ButtonContact></ButtonContact>
+      <ButtonsGroup contact={true} about={true} />
     </div>
   );
 }
