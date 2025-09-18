@@ -1,5 +1,10 @@
 # React + TypeScript + Vite
 
+<!--Vercel Link ------ https://final-project-eight-kohl.vercel.app/ -->
+
+<!--Figma Link ------ https://www.figma.com/design/fI4LcpxO7AUXOnJxyApPXj/Portfolio-template---Edit-this-portfolio-and-export-it-as-HTML---Get-your-portfolio-live-in-no-time--Community-?node-id=701-726&t=K7KKf5fB7KWdGjsy-0 -->
+
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

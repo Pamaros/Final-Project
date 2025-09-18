@@ -64,7 +64,6 @@ function ProjectPage() {
       </div>
       <Spacing height={40}></Spacing>
 
-
       <ButtonsGroup home={true} contact={true} about={true} />
     </Card>
   );
