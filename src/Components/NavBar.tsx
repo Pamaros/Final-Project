@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Button from "./Button";
 
+
 function NavBar() {
   const [scrolled, setScrolled] = useState(false);
 
