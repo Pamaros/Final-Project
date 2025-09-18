@@ -1,27 +1,14 @@
 import { Link } from "react-router-dom";
 import Card from "./Card";
-import { useState, useEffect } from "react";
 
 import type { ProjectsListInterface } from "../types/projects";
 
-function ProjectsCard({projectsList}) {
-  // const [projectsList, setProjectsList] = useState<ProjectsListInterface>();
+interface ProjectsCardProps {
+  projectsList?: ProjectsListInterface; 
+}
 
-  // useEffect(() => {
-  //   const fetchProjects = async () => {
-  //     const data = await fetch(
-  //       `https://api.artic.edu/api/v1/artworks?page=2&limit=100`
-  //     );
+function ProjectsCard({projectsList}: ProjectsCardProps) {
 
-  //     const newProjectsList = await data.json();
-
-  //     console.log("projects list", newProjectsList);
-
-  //     setProjectsList(newProjectsList);
-  //   };
-
-  //   fetchProjects();
-  // }, []);
 
   return (
     <Card className="projects--card">

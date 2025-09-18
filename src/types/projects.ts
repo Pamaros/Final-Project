@@ -24,11 +24,11 @@ export interface ProjectsListInterface {
     limit: number;
     next_url: string;
     offset: number;
+    prev_url: string;
     total: number;
     total_pages: number;
   };
 }
-
 
 export interface ProjectInterface {
   config: {

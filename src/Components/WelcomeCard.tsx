@@ -2,7 +2,14 @@ import Button from "./Button.tsx";
 import Card from "./Card";
 import RandomImage from "./RandomImage.tsx";
 
-function WelcomeCard({projectsList}) {
+
+import type { ProjectsListInterface } from "../types/projects";
+
+interface WelcomeCardProps {
+  projectsList?: ProjectsListInterface; 
+}
+
+function WelcomeCard({projectsList}: WelcomeCardProps) {
   return (
     <>
       <Card className="welcome-card flex-row">

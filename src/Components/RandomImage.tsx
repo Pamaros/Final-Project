@@ -1,61 +1,12 @@
-import { useState, useEffect } from "react";
+import type { ProjectsListInterface } from "../types/projects";
 
-interface ItemOfTheDataArray {
-  image_id: string;
-  title: string;
+interface RandomImageProps {
+  projectsList?: ProjectsListInterface;
 }
 
-interface ImageInterface {
-  config: {
-    iiif_url: string;
-    website_url: string;
-  };
-  data: ItemOfTheDataArray[];
-  info: {
-    license_links: string[];
-    license_text: string;
-    version: string;
-  };
-  pagination: {
-    current_page: number;
-    limit: number;
-    next_url: string;
-    offset: number;
-    total: number;
-    total_pages: number;
-  };
-}
-
-function RandomImage({ projectsList }) {
-  // const [imagesList, setImagesList] = useState<ImageInterface>();
-
-  // useEffect(() => {
-  //   const fetchImages = async () => {
-  //     const data = await fetch(`https://api.artic.edu/api/v1/artworks/`);
-
-  //     const newImagesList = await data.json();
-
-  //     console.log("randomImg", newImagesList);
-  //     console.log("ImgId", newImagesList.data.image_id);
-  //     setImagesList(newImagesList);
-  //   };
-
-  //   fetchImages();
-  // }, []);
-
+function RandomImage({ projectsList }: RandomImageProps) {
   return (
     <div>
-      {/* {projectsList &&
-        (() => {
-          let itemNumber;
-          let randomNumber;
-
-          do {
-            randomNumber = Math.floor(Math.random() * projectsList.data.length);
-          } while (!projectsList.data[randomNumber].image_id);
-
-          itemNumber = randomNumber; */}
-
       {projectsList &&
         (() => {
           const itemsWithImage = projectsList.data.filter(

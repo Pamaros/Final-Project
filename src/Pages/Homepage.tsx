@@ -5,6 +5,8 @@ import WelcomeCard from "../Components/WelcomeCard";
 
 import ProjectsCard from "../Components/ProjectsCard";
 import { useEffect, useState } from "react";
+
+
 import type { ProjectsListInterface } from "../types/projects";
 
 function Homepage() {
@@ -18,7 +20,7 @@ function Homepage() {
         `https://api.artic.edu/api/v1/artworks?page=2&limit=100`
       );
 
-      const newProjectsList = await data.json();
+      const newProjectsList: ProjectsListInterface = await data.json();
 
       console.log("projects list", newProjectsList);
 
