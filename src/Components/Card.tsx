@@ -8,7 +8,7 @@ interface CardProps {
 function Card({ children, className }: CardProps) {
 
     return(
-        <div className={className}>{ children }</div>
+        <div className= {`card ${className}`}>{ children }</div>
     )
 }
 

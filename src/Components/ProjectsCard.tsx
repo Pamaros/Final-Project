@@ -1,48 +1,27 @@
+import { Link } from "react-router-dom";
 import Card from "./Card";
 import { useState, useEffect } from "react";
 
-interface ItemOfTheDataArray {
-  image_id: string;
-  title: string;
-}
+import type { ProjectsListInterface } from "../types/projects";
 
-interface ProjectsListInterface {
-  config: {
-    iiif_url: string;
-    website_url: string;
-  };
-  data: ItemOfTheDataArray[];
-  info: {
-    license_links: string[];
-    license_text: string;
-    version: string;
-  };
-  pagination: {
-    current_page: number;
-    limit: number;
-    next_url: string;
-    offset: number;
-    total: number;
-    total_pages: number;
-  };
-}
+function ProjectsCard({projectsList}) {
+  // const [projectsList, setProjectsList] = useState<ProjectsListInterface>();
 
-function ProjectsCard() {
-  const [projectsList, setProjectsList] = useState<ProjectsListInterface>();
+  // useEffect(() => {
+  //   const fetchProjects = async () => {
+  //     const data = await fetch(
+  //       `https://api.artic.edu/api/v1/artworks?page=2&limit=100`
+  //     );
 
-  useEffect(() => {
-    const fetchProjects = async () => {
-      const data = await fetch(`https://api.artic.edu/api/v1/artworks/`);
+  //     const newProjectsList = await data.json();
 
-      const newProjectsList = await data.json();
+  //     console.log("projects list", newProjectsList);
 
-      console.log("projects list", newProjectsList);
+  //     setProjectsList(newProjectsList);
+  //   };
 
-      setProjectsList(newProjectsList);
-    };
-
-    fetchProjects();
-  }, []);
+  //   fetchProjects();
+  // }, []);
 
   return (
     <Card className="projects--card">
@@ -51,14 +30,20 @@ function ProjectsCard() {
       {projectsList?.data && (
         <div className="projects--grid grid">
           {" "}
-          {projectsList.data.map((project) => {
-            return (
-              <img
-                className="projects--grid-cell"
-                src={`https://www.artic.edu/iiif/2/${project.image_id}/full/843,/0/default.jpg`}
-              ></img>
-            );
-          })}
+          {projectsList.data
+            .filter((project) => project.image_id)
+            .map((project) => {
+              project.image_id;
+
+              return (
+                <Link to={`/project/${project.id}`}>
+                  <img
+                    className="projects--grid-cell"
+                    src={`https://www.artic.edu/iiif/2/${project.image_id}/full/843,/0/default.jpg`}
+                  ></img>
+                </Link>
+              );
+            })}
         </div>
       )}
     </Card>

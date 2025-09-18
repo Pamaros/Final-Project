@@ -2,39 +2,40 @@
 import "../styles/main.css";
 import WelcomeCard from "../Components/WelcomeCard";
 
+
 import ProjectsCard from "../Components/ProjectsCard";
+import { useEffect, useState } from "react";
+import type { ProjectsListInterface } from "../types/projects";
 
 function Homepage() {
 
-  ///////////////////////////
+
+  const [projectsList, setProjectsList] = useState<ProjectsListInterface>();
+
+  useEffect(() => {
+    const fetchProjects = async () => {
+      const data = await fetch(
+        `https://api.artic.edu/api/v1/artworks?page=2&limit=100`
+      );
+
+      const newProjectsList = await data.json();
+
+      console.log("projects list", newProjectsList);
+
+      setProjectsList(newProjectsList);
+    };
+
+    fetchProjects();
+  }, []);
 
 
-  // const [currentName, setCurrentName] = useState('N/A');
-  //     const [age, setAge] = useState(18);
-  
-  //     useEffect(() => {
-  //         console.log('useEffect Marco');
-  //     }, []);
-  
-  //     useEffect(() => {
-  //         console.log(
-  //             'useEffects com dependências name:' + currentName + 'age: ',
-  //             age
-  //         );
-  //     }, [currentName, age]);
-  
-  //     useEffect(() => {
-  //         console.log('sem dependencia nenhuma o CHATO!!!');
-  //     });
-
-  //     /////////////////////////////////////////
 
 
 
   return (
     <>
-      <WelcomeCard></WelcomeCard>
-      <ProjectsCard></ProjectsCard>
+      <WelcomeCard projectsList={projectsList}></WelcomeCard>
+      <ProjectsCard projectsList={projectsList}></ProjectsCard>
     </>
   );
 }

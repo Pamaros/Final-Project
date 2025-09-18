@@ -26,38 +26,61 @@ interface ImageInterface {
   };
 }
 
-function RandomImage() {
-  const [randomImage, setRandomImage] = useState<ImageInterface>();
+function RandomImage({ projectsList }) {
+  // const [imagesList, setImagesList] = useState<ImageInterface>();
 
-  useEffect(() => {
-    const fetchRandomImage = async () => {
-      const data = await fetch(`https://api.artic.edu/api/v1/artworks/`);
+  // useEffect(() => {
+  //   const fetchImages = async () => {
+  //     const data = await fetch(`https://api.artic.edu/api/v1/artworks/`);
 
-      const newRandomImage = await data.json();
+  //     const newImagesList = await data.json();
 
-      console.log("randomImg", newRandomImage);
-      console.log("ImgId", newRandomImage.data.image_id);
-      setRandomImage(newRandomImage);
-    };
+  //     console.log("randomImg", newImagesList);
+  //     console.log("ImgId", newImagesList.data.image_id);
+  //     setImagesList(newImagesList);
+  //   };
 
-    fetchRandomImage();
-  }, []);
+  //   fetchImages();
+  // }, []);
 
   return (
     <div>
-      {randomImage &&
+      {/* {projectsList &&
         (() => {
-          const randomNumber = Math.floor(
-            Math.random() * randomImage.data.length
+          let itemNumber;
+          let randomNumber;
+
+          do {
+            randomNumber = Math.floor(Math.random() * projectsList.data.length);
+          } while (!projectsList.data[randomNumber].image_id);
+
+          itemNumber = randomNumber; */}
+
+      {projectsList &&
+        (() => {
+          const itemsWithImage = projectsList.data.filter(
+            (item) =>
+              item.image_id !== null &&
+              item.image_id !== "" &&
+              item.image_id !== "null"
           );
+
+          const randomIndex = Math.floor(Math.random() * itemsWithImage.length);
+          const item = itemsWithImage[randomIndex];
+
           return (
             <div className="random-image flex-column flex-column--center">
-              <img className="random-image--name"
-                src={`https://www.artic.edu/iiif/2/${randomImage.data[randomNumber].image_id}/full/843,/0/default.jpg`}
+              <img
+                className="random-image--name"
+                src={`https://www.artic.edu/iiif/2/${item.image_id}/full/843,/0/default.jpg`}
                 alt=""
+                onError={(e) => {
+                  e.currentTarget.src =
+                    "https://www.artic.edu/iiif/2/efef304d-190c-294f-1cba-73374b3361a3/full/843,/0/default.jpg";
+                }}
               />
 
-              <span>{randomImage.data[randomNumber].title}</span>
+              <span>{item.title}</span>
             </div>
           );
         })()}
